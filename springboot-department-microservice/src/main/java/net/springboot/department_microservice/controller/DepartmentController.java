@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import net.springboot.department_microservice.dto.DepartmentDto;
 import net.springboot.department_microservice.service.DepartmentService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @AllArgsConstructor
 @RestController
@@ -18,5 +15,10 @@ public class DepartmentController {
     @PostMapping
     public ResponseEntity<DepartmentDto> saveDepartment(@RequestBody DepartmentDto departmentDto){
         return ResponseEntity.ok(departmentService.saveDepartment(departmentDto));
+    }
+
+    @GetMapping("/{code}")
+    public ResponseEntity<DepartmentDto> getDepartment(@PathVariable String code){
+        return ResponseEntity.ok(departmentService.getDepartment(code));
     }
 }

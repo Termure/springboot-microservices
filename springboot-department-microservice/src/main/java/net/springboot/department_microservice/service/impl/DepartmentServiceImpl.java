@@ -20,4 +20,9 @@ public class DepartmentServiceImpl implements DepartmentService {
         departmentRepository.save(department);
         return modelMapper.map(department, DepartmentDto.class);
     }
+
+    @Override
+    public DepartmentDto getDepartment(String code){
+        return modelMapper.map(departmentRepository.findDepartmentByDepartmentCode(code), DepartmentDto.class);
+    }
 }
