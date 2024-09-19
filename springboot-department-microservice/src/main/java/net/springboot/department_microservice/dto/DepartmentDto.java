@@ -1,6 +1,5 @@
-package net.springboot.department_microservice.entity;
+package net.springboot.department_microservice.dto;
 
-import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -8,17 +7,9 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity
-@Table(name = "departments")
-public class Department {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class DepartmentDto {
     private Long id;
-
     private String departmentName;
-
     private String departmentDescription;
-
     private String departmentCode;
 }
