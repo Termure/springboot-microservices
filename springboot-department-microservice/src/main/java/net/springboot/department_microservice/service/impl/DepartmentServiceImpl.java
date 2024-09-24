@@ -17,8 +17,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public DepartmentDto saveDepartment(DepartmentDto departmentDto) {
         Department department = modelMapper.map(departmentDto, Department.class);
-        departmentRepository.save(department);
-        return modelMapper.map(department, DepartmentDto.class);
+        return modelMapper.map(departmentRepository.save(department), DepartmentDto.class);
     }
 
     @Override
